@@ -1,0 +1,30 @@
+.container {
+  display: grid;
+  grid-template-columns: auto;
+  grid-template-rows: auto;
+  grid-template-areas: "container";
+}
+
+.container_item {
+  grid-area: container;
+  justify-self: center; /* align by column */
+  align-self: center; /* align by row */
+  place-self: center;
+  width: 70%;
+  margin-top: 3%;
+}
+
+.template {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: 50px auto;
+  grid-column-gap: 0px;
+  grid-row-gap: 20px;
+  grid-template-areas:
+    "category input button"
+    "table table table";
+}
+
+.table {
+  grid-area: table;
+}
