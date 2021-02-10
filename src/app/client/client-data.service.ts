@@ -2,6 +2,7 @@ import {Injectable} from '@angular/core';
 import {environment} from "../../environments/environment";
 import {HttpClient} from "@angular/common/http";
 import {UserStatus} from "./model/user-status";
+import {User} from "./model/user";
 
 const API_URL = environment.apiUrl;
 
@@ -15,6 +16,10 @@ export class ClientDataService {
 
   getStatuses() {
     return this.http.get<UserStatus []>(`${API_URL}/users/statuses`);
+  }
+
+  findByName(param: string) {
+    return this.http.get<User []>(`${API_URL}/users/name/${param}`);
   }
 
 }

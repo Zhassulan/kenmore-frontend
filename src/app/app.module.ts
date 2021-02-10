@@ -8,6 +8,7 @@ import {MaterialsModule} from './materials/materials.module';
 import { ClientSearchFormComponent } from './client/client-search-form/client-search-form.component';
 import {ClientDataService} from "./client/client-data.service";
 import {HttpClientModule} from "@angular/common/http";
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -19,7 +20,9 @@ import {HttpClientModule} from "@angular/common/http";
     AppRoutingModule,
     BrowserAnimationsModule,
     MaterialsModule,
-    HttpClientModule
+    HttpClientModule,
+    FormsModule,
+    ReactiveFormsModule
   ],
   providers: [
     ClientDataService
