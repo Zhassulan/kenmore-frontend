@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
+import {UserStatus} from "../model/user-status";
+import {ClientDataService} from "../client-data.service";
 
 @Component({
   selector: 'app-client-search-form',
@@ -7,9 +9,21 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ClientSearchFormComponent implements OnInit {
 
-  constructor() { }
+  searchByCategories: string[] = ['name', 'email', 'birthdate', 'status'];
+  selectedCategory = this.searchByCategories[0];
+  statuses: UserStatus[] = [];
+
+  constructor(private clntService : ClientDataService) {
+  }
 
   ngOnInit(): void {
+    this.clntService.getStatuses().subscribe(
+      data => {
+        this.statuses = data;
+        console.log(data);
+      },
+      error => alert(JSON.stringify(error))
+    );
   }
 
 }
